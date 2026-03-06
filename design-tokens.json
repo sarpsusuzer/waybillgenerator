@@ -11,29 +11,29 @@
   "color": {
     "app": {
       "background": {
-        "value": "#0f172a",
+        "value": "#0a0f0f",
         "type": "color"
       },
       "sidebar": {
-        "value": "#1e293b",
+        "value": "#131a1a",
         "type": "color"
       },
       "preview": {
-        "value": "#334155",
+        "value": "#1d2b2b",
         "type": "color"
       },
       "inputBackground": {
-        "value": "#0f172a",
+        "value": "#0a0f0f",
         "type": "color"
       }
     },
     "brand": {
       "primary": {
-        "value": "#2563eb",
+        "value": "#1C8380",
         "type": "color"
       },
       "primaryHover": {
-        "value": "#1d4ed8",
+        "value": "#166a67",
         "type": "color"
       },
       "danger": {
@@ -47,7 +47,7 @@
         "type": "color"
       },
       "muted": {
-        "value": "#94a3b8",
+        "value": "#8ea7a7",
         "type": "color"
       },
       "onPrimary": {
@@ -69,7 +69,7 @@
     },
     "border": {
       "default": {
-        "value": "#334155",
+        "value": "#263838",
         "type": "color"
       },
       "paper": {

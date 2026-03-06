@@ -89,11 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const div = document.createElement('div');
             div.className = 'item-row-input';
             div.innerHTML = `
-                <div style="flex: 1; display: grid; gap: 4px;">
-                    <input type="text" value="${item.description}" placeholder="Item Description" data-index="${index}" data-key="description">
-                    <div style="display: flex; gap: 4px;">
-                        <input type="text" value="${item.code}" placeholder="Stok Kodu" style="flex: 2" data-index="${index}" data-key="code">
-                        <input type="text" value="${item.multiCode}" placeholder="Multi Kod" style="flex: 1" data-index="${index}" data-key="multiCode">
+                <div class="item-row-fields">
+                    <input type="text" value="${item.description}" placeholder="Description" data-index="${index}" data-key="description">
+                    <div class="field-group">
+                        <input type="text" value="${item.code}" placeholder="Code" style="flex: 2" data-index="${index}" data-key="code">
+                        <input type="text" value="${item.multiCode}" placeholder="Multi" style="flex: 1" data-index="${index}" data-key="multiCode">
                         <input type="number" value="${item.quantity}" placeholder="Qty" style="flex: 1" data-index="${index}" data-key="quantity">
                     </div>
                 </div>
@@ -110,9 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const div = document.createElement('div');
             div.className = 'item-row-input';
             div.innerHTML = `
-                <div style="flex: 1; display: grid; gap: 4px;">
+                <div class="item-row-fields">
                     <input type="text" value="${doc.no}" placeholder="Doc No" data-index="${index}" data-key="no">
-                    <div style="display: flex; gap: 4px;">
+                    <div class="field-group">
                         <input type="date" value="${doc.date}" style="flex: 2" data-index="${index}" data-key="date">
                         <input type="text" value="${doc.type}" placeholder="Type" style="flex: 1" data-index="${index}" data-key="type">
                     </div>

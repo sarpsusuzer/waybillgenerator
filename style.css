@@ -1,15 +1,15 @@
 :root {
-    --primary: #2563eb;
-    --primary-hover: #1d4ed8;
-    --bg-app: #0f172a;
-    --bg-sidebar: #1e293b;
-    --bg-preview: #334155;
+    --primary: #1C8380;
+    --primary-hover: #166a67;
+    --bg-app: #0a0f0f;
+    --bg-sidebar: #131a1a;
+    --bg-preview: #1d2b2b;
     --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --border-color: #334155;
+    --text-muted: #8ea7a7;
+    --border-color: #263838;
     --paper-white: #ffffff;
     --paper-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    --input-bg: #0f172a;
+    --input-bg: #0a0f0f;
 }
 
 * {
@@ -54,13 +54,12 @@ body {
 }
 
 .logo-text {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.25rem;
-    font-weight: 700;
+    height: 32px;
 }
 
-.logo-text span {
-    color: var(--primary);
+.logo-text img {
+    height: 100%;
+    display: block;
 }
 
 .form-sections {
@@ -112,6 +111,8 @@ label {
 
 input,
 textarea {
+    width: 100%;
+    min-width: 0;
     padding: 0.75rem;
     background: var(--input-bg);
     border: 1px solid var(--border-color);
@@ -394,7 +395,7 @@ textarea {
 }
 
 .col-mal {
-    /* flexible */
+    width: auto;
 }
 
 .col-miktar {
@@ -415,7 +416,7 @@ textarea {
 }
 
 .col-doc-aciklama {
-    /* flexible */
+    width: auto;
 }
 
 /* Docs Header */
@@ -461,17 +462,30 @@ textarea {
 /* Items specific classes */
 .item-row-input {
     display: flex;
-    gap: 0.5rem;
-    padding: 0.75rem;
-    background: var(--input-bg);
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-app);
     border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
-    margin-bottom: 0.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
     position: relative;
+    align-items: flex-start;
+}
+
+.item-row-fields {
+    flex: 1;
+    display: grid;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+.item-row-fields .field-group {
+    display: flex;
+    gap: 0.5rem;
 }
 
 .item-row-input input {
-    padding: 0.4rem;
+    padding: 0.5rem;
 }
 
 .btn-remove {
