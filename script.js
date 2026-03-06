@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('w-type').value = state.waybill.type;
 
         document.getElementById('l-company').value = state.logistics.company;
+        document.getElementById('l-vkn').value = state.logistics.vkn;
         document.getElementById('l-plate').value = state.logistics.plate;
         document.getElementById('l-trailer').value = state.logistics.trailer;
         document.getElementById('l-driver').value = state.logistics.driver;
