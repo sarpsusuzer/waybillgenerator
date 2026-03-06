@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yukato Waybill Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar: Input Fields -->
+        <aside class="sidebar">
+            <header class="sidebar-header">
+                <div class="logo-text">Yukato<span>Waybill</span></div>
+                <button id="export-btn" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Export Waybill
+                </button>
+            </header>
+
+            <div class="form-sections">
+                <!-- Section: Vendor Information -->
+                <section class="form-section">
+                    <h3 class="section-title">Supplier Information</h3>
+                    <div class="input-group">
+                        <label for="v-name">Company Name</label>
+                        <input type="text" id="v-name" placeholder="TURKUVAZ PLASTİK VE TEMİZLİK...">
+                    </div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="v-vkn">VKN (Tax ID)</label>
+                            <input type="text" id="v-vkn" placeholder="8710506698">
+                        </div>
+                        <div class="input-group">
+                            <label for="v-tax-office">Tax Office</label>
+                            <input type="text" id="v-tax-office" placeholder="ANADOLU KURUMLAR...">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="v-address">Address</label>
+                        <textarea id="v-address" placeholder="E-5 YOLU ÜZERİ..."></textarea>
+                    </div>
+                </section>
+
+                <!-- Section: Recipient Information -->
+                <section class="form-section">
+                    <h3 class="section-title">Recipient Information</h3>
+                    <div class="input-group">
+                        <label for="r-name">Recipient Name</label>
+                        <input type="text" id="r-name" placeholder="BİM BİRLEŞİK MAĞAZALAR A.Ş.">
+                    </div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="r-vkn">VKN</label>
+                            <input type="text" id="r-vkn" placeholder="1750051846">
+                        </div>
+                        <div class="input-group">
+                            <label for="r-ettn">ETTN</label>
+                            <input type="text" id="r-ettn" placeholder="2E92E7D7...">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="r-address">Address</label>
+                        <textarea id="r-address" placeholder="35860 AYRANCILAR/ İZMİR"></textarea>
+                    </div>
+                </section>
+
+                <!-- Section: Waybill Details -->
+                <section class="form-section">
+                    <h3 class="section-title">Waybill Details</h3>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="w-no">Waybill No</label>
+                            <input type="text" id="w-no" placeholder="HNE20260000002392">
+                        </div>
+                        <div class="input-group">
+                            <label for="w-date">Date</label>
+                            <input type="date" id="w-date">
+                        </div>
+                    </div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="w-time">Time</label>
+                            <input type="time" id="w-time">
+                        </div>
+                        <div class="input-group">
+                            <label for="w-type">Type</label>
+                            <input type="text" id="w-type" value="SEVK">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Items -->
+                <section class="form-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Items</h3>
+                        <button id="add-item-btn" class="btn btn-sm btn-outline">+ Add Item</button>
+                    </div>
+                    <div id="items-container" class="items-list">
+                        <!-- Items will be injected here -->
+                    </div>
+                </section>
+
+                <!-- Section: Related Documents -->
+                <section class="form-section">
+                    <div class="section-header">
+                        <h3 class="section-title">Related Documents</h3>
+                        <button id="add-doc-btn" class="btn btn-sm btn-outline">+ Add Doc</button>
+                    </div>
+                    <div id="docs-container" class="items-list">
+                        <!-- Documents will be injected here -->
+                    </div>
+                </section>
+
+                <!-- Section: Logistics -->
+                <section class="form-section">
+                    <h3 class="section-title">Logistics & Driver</h3>
+                    <div class="input-group">
+                        <label for="l-company">Carrier Company</label>
+                        <input type="text" id="l-company" placeholder="İZLOG NAKLİYE VE LOJİSTİK...">
+                    </div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="l-plate">Truck Plate</label>
+                            <input type="text" id="l-plate" placeholder="54 LB 973">
+                        </div>
+                        <div class="input-group">
+                            <label for="l-trailer">Trailer Plate</label>
+                            <input type="text" id="l-trailer" placeholder="54 ABG 729">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="l-driver">Driver (Name & TCKN)</label>
+                        <input type="text" id="l-driver" placeholder="Şoför ALİ ATMACA, TCKN: 36740076968">
+                    </div>
+                </section>
+            </div>
+        </aside>
+
+        <!-- Main: Live Preview -->
+        <main class="preview-area">
+            <div class="preview-controls">
+                <span>Waybill Preview</span>
+                <div class="zoom-controls">
+                    <button id="zoom-out">-</button>
+                    <span id="zoom-level">100%</span>
+                    <button id="zoom-in">+</button>
+                </div>
+            </div>
+
+            <div id="waybill-paper" class="waybill-paper">
+                <!-- This content matches the structure of the provided image -->
+                <div class="waybill-inner" id="print-area">
+                    <!-- Top Section: Supplier Details and QR -->
+                    <div class="wb-header-row">
+                        <!-- Left: Supplier Details -->
+                        <div class="wb-left-section">
+                            <h1 class="wb-company-name" id="preview-v-name-main">TURKUVAZ</h1>
+                            <div class="wb-divider-thin"></div>
+                            <div class="wb-supplier-details" id="preview-v-details">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Right: QR Code -->
+                        <div class="wb-right-section">
+                            <div class="wb-qr">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=YukatoWaybill"
+                                    alt="QR">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Horizontal Divider -->
+                    <div class="wb-divider-thick"></div>
+
+                    <!-- SAYIN Section and Info Table -->
+                    <div class="wb-middle-row">
+                        <!-- Left: SAYIN Box -->
+                        <div class="wb-sayin-section">
+                            <div class="wb-sayin-label">SAYIN</div>
+                            <div class="wb-recipient-info" id="preview-r-details">
+                                <!-- Recipient details -->
+                            </div>
+                        </div>
+
+                        <!-- Right: Info Table -->
+                        <div class="wb-info-section">
+                            <table class="wb-info-table">
+                                <tr>
+                                    <td class="label">Senaryo:</td>
+                                    <td id="preview-scenario">TEMELIRSALIYE</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Özelleştirme No:</td>
+                                    <td>TR1.2.1</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">İrsaliye Tipi:</td>
+                                    <td id="preview-w-type">SEVK</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">İrsaliye No:</td>
+                                    <td id="preview-w-no">HNE20260000002392</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">İrsaliye Tarihi:</td>
+                                    <td id="preview-w-date">21-01-2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">İrsaliye Zamanı:</td>
+                                    <td id="preview-w-time">14:50:37</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Sevk Tarihi:</td>
+                                    <td id="preview-s-date">21-01-2026</td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Sevk Zamanı:</td>
+                                    <td id="preview-s-time">00:00:00</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Items Table -->
+                    <table class="wb-table wb-items-table">
+                        <thead>
+                            <tr>
+                                <th class="col-sira">Sıra No</th>
+                                <th class="col-stok">Stok Kodu</th>
+                                <th class="col-multi">Multi Kod</th>
+                                <th class="col-mal">Mal</th>
+                                <th class="col-miktar">Miktar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="preview-items-body">
+                            <!-- Items injected here -->
+                        </tbody>
+                    </table>
+
+                    <!-- Related Documents Table -->
+                    <div class="wb-docs-header">İlgili Dokümanlar</div>
+                    <table class="wb-table wb-docs-table">
+                        <thead>
+                            <tr>
+                                <th class="col-doc-no">Doküman No</th>
+                                <th class="col-doc-tarih">Tarih</th>
+                                <th class="col-doc-tip">Doküman Tipi</th>
+                                <th class="col-doc-aciklama">Açıklama</th>
+                            </tr>
+                        </thead>
+                        <tbody id="preview-docs-body">
+                            <!-- Docs injected here -->
+                        </tbody>
+                    </table>
+
+                    <!-- Footer Section -->
+                    <div class="wb-footer-row">
+                        <!-- Left: Açıklamalar -->
+                        <div class="wb-footer-section">
+                            <div class="wb-footer-header">Açıklamalar</div>
+                            <div class="wb-footer-content" id="preview-notes">
+                                <!-- Notes -->
+                            </div>
+                        </div>
+
+                        <!-- Right: Taşıyıcı Bilgileri -->
+                        <div class="wb-footer-section">
+                            <div class="wb-footer-header">Taşıyıcı Bilgileri</div>
+                            <div class="wb-footer-content" id="preview-l-details">
+                                <!-- Logistics details -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
